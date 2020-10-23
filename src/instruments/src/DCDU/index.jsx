@@ -7,10 +7,9 @@ import {
 
 import { renderTarget } from '../utils/util.mjs';
 
-import { SelfTest } from './pages/SelfTest/SelfTest';
-import { Waiting } from './pages/Waiting/Waiting';
 import { Idle } from './pages/Idle/Idle';
 import { Off } from './pages/Off/Off';
+import { SelfTest, Waiting } from './pages/Init/Init';
 import { usePower } from '../utils/hooks/usePower.mjs';
 
 function DCDU() {
@@ -27,8 +26,8 @@ function DCDU() {
   return (
     <Switch>
       <Route exact path="/" component={Off} />
-      <Route exact path="/selfTest" component={SelfTest} />
-      <Route exact path="/waiting" component={Waiting} />
+      <Route exact path="/init" component={SelfTest} />
+      <Route exact path="/init/waiting" component={Waiting} />
       <Route exact path="/idle" component={Idle} />
     </Switch>
   );

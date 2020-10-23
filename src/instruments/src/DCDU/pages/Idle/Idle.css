@@ -1,6 +1,6 @@
 @import url("/CSS/A32NX_Display_Common.css");
 
-.dcdu__idle {
+.dcdu-idle {
   padding-top: 50px;
   padding-right: 200px;
   color: var(--displayGreen);

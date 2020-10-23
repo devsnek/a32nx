@@ -5,7 +5,7 @@ export function Off() {
   const power = usePower();
 
   if (power) {
-    return <Redirect to="/selfTest" />;
+    return <Redirect to="/init" />;
   }
 
   return <></>;

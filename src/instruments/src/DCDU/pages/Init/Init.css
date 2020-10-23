@@ -1,6 +1,6 @@
 @import url("/CSS/A32NX_Display_Common.css");
 
-.dcdu__waiting--container {
+.dcdu-init-container {
   width: 100%;
   min-height: 100%;
   display: flex;

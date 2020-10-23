@@ -1,6 +1,6 @@
 @import url("/CSS/A32NX_Display_Common.css");
 
-.dcdu__container {
+.dcdu-container {
   height: 100%;
   width: 100%;
   padding: 10px 21px;
@@ -24,7 +24,7 @@
     "left middle right";
 }
 
-.dcdu__container--top {
+.dcdu-container-top {
   grid-area: top;
   border-bottom: 3px solid var(--displaySeparatorLight);
   display: flex;
@@ -33,7 +33,7 @@
   align-items: center;
 }
 
-.dcdu__container--middle {
+.dcdu-container-middle {
   margin-top: 10px;
   grid-area: middle;
   border: solid white;
@@ -44,7 +44,7 @@
   align-items: center;
 }
 
-.dcdu__container--left {
+.dcdu-container-left {
   margin-top: 10px;
   grid-area: left;
   display: flex;
@@ -54,7 +54,7 @@
   color: var(--mcduBlue);
 }
 
-.dcdu__container--right {
+.dcdu-container-right {
   margin-top: 10px;
   grid-area: right;
   display: flex;
