@@ -1,0 +1,66 @@
+@import url("/CSS/A32NX_Display_Common.css");
+
+.dcdu__container {
+  height: 100%;
+  width: 100%;
+  padding: 10px 21px;
+  border: 0;
+  margin: 0;
+  font-family: "ECAMFontRegular";
+  font-size: 12pt;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(13, 20, 35, 1) 0%,
+    rgb(13, 20, 35) 100%
+  );
+  /* Grid definition */
+  display: grid;
+  grid-template-columns: 109px 1fr 109px;
+  grid-template-rows: 225px 139px;
+  /* gap is not working, using margin in classes below as replacement */
+  gap: 10px 0px;
+  grid-template-areas:
+    "top top top"
+    "left middle right";
+}
+
+.dcdu__container--top {
+  grid-area: top;
+  border-bottom: 3px solid var(--displaySeparatorLight);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dcdu__container--middle {
+  margin-top: 10px;
+  grid-area: middle;
+  border: solid white;
+  border-width: 0 3px 0 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dcdu__container--left {
+  margin-top: 10px;
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: left;
+  color: var(--mcduBlue);
+}
+
+.dcdu__container--right {
+  margin-top: 10px;
+  grid-area: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 16pt;
+  color: var(--mcduBlue);
+}

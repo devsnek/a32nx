@@ -12,7 +12,7 @@ const template = require('./template/rollup.js');
 const TMPDIR = `${os.tmpdir()}/a32nx-instruments-gen`;
 
 module.exports = fs.readdirSync(`${__dirname}/src`, { withFileTypes: true })
-  .filter((d) => d.isDirectory())
+  .filter((d) => d.isDirectory() && !d.name.includes('utils'))
   .map(({ name }) => {
     let cssBundle;
     return {
@@ -34,7 +34,7 @@ module.exports = fs.readdirSync(`${__dirname}/src`, { withFileTypes: true })
         replace({
           'process.env.NODE_ENV': '"production"',
         }),
-        nodeResolve(),
+        nodeResolve({ extensions: ['.js', '.jsx'] }),
         commonjs({
           include: /node_modules/,
         }),

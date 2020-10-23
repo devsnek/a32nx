@@ -50,6 +50,7 @@ module.exports = {
     // Not needed with react 17+
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    'linebreak-style': 'off',
   },
   globals: {
     Simplane: 'readonly',
