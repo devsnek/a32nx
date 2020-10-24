@@ -1,11 +1,12 @@
-import { Redirect } from 'react-router-dom';
-import { usePower } from '../../../utils/hooks/usePower.mjs';
+import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
+import { PowerContext } from '../../../utils/contexts/PowerContext';
 
 export function Off() {
-  const power = usePower();
+  const { power } = useContext(PowerContext);
 
   if (power) {
-    return <Redirect to="/init" />;
+    return <Navigate to="/initialization" />;
   }
 
   return <></>;

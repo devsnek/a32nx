@@ -4,7 +4,7 @@ import { DcduContainer } from '../../components/DcduContainer';
 
 export function Idle() {
   const top = (
-    <div className="dcdu-idle">
+    <div className="dcdu-idle text-xl">
       NO ACTIVE ATC
     </div>
   );

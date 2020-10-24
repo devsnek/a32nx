@@ -2,35 +2,42 @@ import './style.css';
 
 import ReactDOM from 'react-dom';
 import {
-  HashRouter, Route, Switch, useHistory,
+  HashRouter, Navigate, Route, Routes, useLocation,
 } from 'react-router-dom';
 
+import { useContext } from 'react';
 import { renderTarget } from '../utils/util.mjs';
 
 import { Idle } from './pages/Idle/Idle';
 import { Off } from './pages/Off/Off';
-import { SelfTest, Waiting } from './pages/Init/Init';
-import { usePower } from '../utils/hooks/usePower.mjs';
+import { Init } from '../components/Init/Init';
+import { PowerContext, PowerProvider } from '../utils/contexts/PowerContext';
 
 function DCDU() {
-  const history = useHistory();
-  const power = usePower();
-
-  if (!power) {
-    history.push('/');
-  }
+  const { power } = useContext(PowerContext);
+  const location = useLocation();
 
   // useInteractionEvent('A32NX_DCDU_BTN_INOP', () => {
   // });
 
+  if (!power && location.pathname !== '/') {
+    return <Navigate to="/" />;
+  }
+
   return (
-    <Switch>
-      <Route exact path="/" component={Off} />
-      <Route exact path="/init" component={SelfTest} />
-      <Route exact path="/init/waiting" component={Waiting} />
-      <Route exact path="/idle" component={Idle} />
-    </Switch>
+    <Routes>
+      <Route path="/" element={<Off />} />
+      <Route path="initialization/*" element={<Init waitForData dataTime={30} testTime={10} redirect="/idle" />} />
+      <Route path="idle/*" element={<Idle />} />
+    </Routes>
   );
 }
 
-ReactDOM.render(<HashRouter><DCDU /></HashRouter>, renderTarget);
+ReactDOM.render(
+  <HashRouter>
+    <PowerProvider>
+      <DCDU />
+    </PowerProvider>
+  </HashRouter>,
+  renderTarget,
+);

@@ -7,8 +7,10 @@ export function usePower() {
 
   useUpdate((_deltaTime) => {
     if (powerAvailable()) {
-      setPower(true);
-    } else {
+      if (!power) {
+        setPower(true);
+      }
+    } else if (power) {
       setPower(false);
     }
   });
